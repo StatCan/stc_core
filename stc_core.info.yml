@@ -1,0 +1,9 @@
+name: 'STC Core'
+description: 'Provides core configuration.'
+type: module
+core: 8.x
+package: 'STC'
+
+# Required modules
+dependencies:
+  - drupal:datetime_range
