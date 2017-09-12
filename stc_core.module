@@ -4,3 +4,30 @@
  * @file
  * Contains stc_core.module.
  */
+
+use Drupal\bootstrap\Bootstrap;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function stc_core_form_wxt_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  $wxt_gcweb_search = Bootstrap::getTheme()->getSetting('wxt_gcweb_search');
+  if (empty($wxt_gcweb_search)) {
+//    $form['submit']['#value'] = t('Search this site');
+
+    $form['#action'] = '//www120.statcan.gc.ca/stcsr/en/ut1/uts';
+    $form['#method'] = 'get';
+
+    $form['keys']['#placeholder'] = t('Search website');
+    $form['keys']['#name'] = 'q';
+    $form['keys']['#maxlength'] = 150;
+
+    $form['fq'] = [
+      '#name' => 'fq',
+      '#value' => 'stclac:2',
+      '#type' => 'hidden',
+      '#input' => 'TRUE',
+    ];
+  }
+}
