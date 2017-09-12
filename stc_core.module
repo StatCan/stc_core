@@ -15,8 +15,8 @@ function stc_core_form_wxt_search_block_form_alter(&$form, FormStateInterface $f
 
   $wxt_gcweb_search = Bootstrap::getTheme()->getSetting('wxt_gcweb_search');
   if (empty($wxt_gcweb_search)) {
-
-    $form['#action'] = '//www120.statcan.gc.ca/stcsr/en/ut1/uts';
+    $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $form['#action'] = '//www120.statcan.gc.ca/stcsr/' . $language . '/ut1/uts';
     $form['#method'] = 'get';
 
     $form['keys']['#placeholder'] = t('Search website');
