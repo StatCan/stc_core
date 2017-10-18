@@ -29,5 +29,9 @@ function stc_core_form_wxt_search_block_form_alter(&$form, FormStateInterface $f
       '#type' => 'hidden',
       '#input' => 'TRUE',
     ];
+
+    $form['submit']['#name'] = 'wb-srch-sub';
+    $form['submit']['#value'] = t('Search');
+    $form['submit']['#icon_only'] = TRUE;
   }
 }
