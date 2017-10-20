@@ -19,9 +19,11 @@ function stc_core_form_wxt_search_block_form_alter(&$form, FormStateInterface $f
     $form['#action'] = '//www120.statcan.gc.ca/stcsr/' . $language . '/ut1/uts';
     $form['#method'] = 'get';
 
-    $form['keys']['#placeholder'] = t('Search website');
+    $form['keys']['#title'] = t('Search website');
+    $form['keys']['#placeholder'] = $form['keys']['#title'];
     $form['keys']['#name'] = 'q';
     $form['keys']['#maxlength'] = 150;
+    $form['keys']['#description'] = '';
 
     $form['fq'] = [
       '#name' => 'fq',
@@ -29,5 +31,9 @@ function stc_core_form_wxt_search_block_form_alter(&$form, FormStateInterface $f
       '#type' => 'hidden',
       '#input' => 'TRUE',
     ];
+
+    $form['submit']['#name'] = 'wb-srch-sub';
+    $form['submit']['#value'] = t('Search');
+    $form['submit']['#icon_only'] = TRUE;
   }
 }
