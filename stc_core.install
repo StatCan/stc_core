@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall functions for the STC Core module.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Setup minimal defaults for a StatCan site
+ *
+ * @see system_install()
+ */
+function stc_core_install() {
+  _stc_core_setup_themes();
+  _stc_core_setup_branding();
+}
+
+/**
+ * Setup the themes.
+ */
+function _stc_core_setup_themes() {
+  // Set the default and admin theme.
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('default', 'stc_bootstrap')
+    ->set('admin', 'seven')
+    ->save(TRUE);
+
+  // Enable the admin theme.
+  \Drupal::configFactory()
+    ->getEditable('node.settings')
+    ->set('use_admin_theme', TRUE)
+    ->save(TRUE);
+}
+
+/**
+ * Set up the default branding.
+ */
+function _stc_core_setup_branding() {
+  // Set the path to the logo, favicon and README file based on install
+  // directory.
+  $theme_path = \Drupal::service('extension.list.theme')->getPath('stc_bootstrap');
+  \Drupal::configFactory()
+    ->getEditable('system.theme.global')
+    ->set('logo', [
+      'path' => $theme_path . '/stc.svg',
+      'url' => '',
+      'use_default' => FALSE,
+    ])
+    ->set('favicon', [
+      'mimetype' => 'image/vnd.microsoft.icon',
+      'path' => $theme_path . '/favicon.ico',
+      'url' => '',
+      'use_default' => FALSE,
+    ])
+    ->save(TRUE);
+}
