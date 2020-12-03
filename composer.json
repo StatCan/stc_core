@@ -1,0 +1,22 @@
+{
+    "name": "stc/stc_core",
+    "type": "drupal-module",
+    "description": "Base module for STC site",
+    "authors": [
+        {
+            "name": "Philippe Thiboutot-Simard",
+            "email": "philippe.thiboutot@cloud.statcan.ca"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://gitlab.com/stcwcms/common/stc_bootstrap.git"
+        }
+    ],
+    "require": {
+        "stc/stc_bootstrap": "3.0.x-dev"
+    }
+}
