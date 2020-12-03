@@ -33,6 +33,10 @@ function _stc_core_setup_themes() {
     ->getEditable('node.settings')
     ->set('use_admin_theme', TRUE)
     ->save(TRUE);
+
+  $config = \Drupal::configFactory()->getEditable('wxt_library.settings');
+  $config->set('wxt.theme', 'theme-gcweb');
+  $config->save();
 }
 
 /**
