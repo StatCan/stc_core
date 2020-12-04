@@ -21,11 +21,14 @@ function stc_core_install() {
  * Setup the themes.
  */
 function _stc_core_setup_themes() {
+  // Enable stc_bootstrap theme
+  \Drupal::service('theme_installer')->install(['stc_bootstrap']);
+
   // Set the default and admin theme.
   \Drupal::configFactory()
     ->getEditable('system.theme')
     ->set('default', 'stc_bootstrap')
-    ->set('admin', 'seven')
+    ->set('admin', 'claro')
     ->save(TRUE);
 
   // Enable the admin theme.
@@ -35,6 +38,7 @@ function _stc_core_setup_themes() {
     ->save(TRUE);
 
   $config = \Drupal::configFactory()->getEditable('wxt_library.settings');
+  $config->set('theme.themes', ['stc_bootstrap', 'wxt_bootstrap']);
   $config->set('wxt.theme', 'theme-gcweb');
   $config->save();
 }
