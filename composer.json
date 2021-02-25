@@ -17,6 +17,6 @@
         }
     ],
     "require": {
-        "stc/stc_bootstrap": "3.0.x-dev"
+        "stc/stc_bootstrap": "1.x-dev"
     }
 }
