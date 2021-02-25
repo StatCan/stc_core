@@ -1,6 +1,6 @@
 {
     "name": "stc/stc_core",
-    "type": "custom-drupal-module",
+    "type": "drupal-custom-module",
     "description": "Base module for STC site",
     "authors": [
         {
