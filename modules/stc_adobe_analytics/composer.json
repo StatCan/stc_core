@@ -1,0 +1,8 @@
+{
+    "name": "stc/stc_adobe_analytics",
+    "description": "Drupal module implementation of Adobe Analytics for Statistics Canada",
+    "type": "drupal-custom-module",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

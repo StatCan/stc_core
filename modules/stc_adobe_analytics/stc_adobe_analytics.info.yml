@@ -1,0 +1,7 @@
+name: 'Adobe Analytics: Statistics Canada'
+description: Adobe Analytics for Statistics Canada
+type: module
+core_version_requirement: ^8.8 || ^9
+package: Analytics
+dependencies:
+  - metatag:metatag

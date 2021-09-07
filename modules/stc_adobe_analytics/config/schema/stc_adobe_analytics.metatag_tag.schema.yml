@@ -1,0 +1,6 @@
+metatag.metatag_tag.stc_aa_service:
+  type: label
+  label: 'Service'
+metatag.metatag_tag.stc_aa_access_rights:
+  type: label
+  label: 'Access Rights'

@@ -1,0 +1,9 @@
+stc_adobe_analytics.configuration_form:
+  path: '/admin/config/stc_adobe_analytics/config'
+  defaults:
+    _form: \Drupal\stc_adobe_analytics\Form\ConfigurationForm
+    _title: 'Adobe Analytics configuration'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

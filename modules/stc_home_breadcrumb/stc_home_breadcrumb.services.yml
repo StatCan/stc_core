@@ -1,0 +1,6 @@
+services:
+  stc_core.breadcrumb:
+    class: Drupal\stc_home_breadcrumb\StcHomeBreadcrumbBuilder
+    parent: system.breadcrumb.default
+    tags:
+      - { name: breadcrumb_builder, priority: 1001 }

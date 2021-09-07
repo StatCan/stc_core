@@ -1,0 +1,7 @@
+adobe_analytics:
+  header: true
+  # NOTE: js is defined in stc_adobe_analytics.module (stc_adobe_analytics_library_info_alter)
+
+adobe_analytics_footer:
+  js:
+    js/adobe_analytics_footer.js: {}
