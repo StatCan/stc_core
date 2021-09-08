@@ -1,0 +1,10 @@
+stc_adobe_analytics.config:
+  type: config_object
+  label: 'Adobe Analytics config'
+  mapping:
+    asset_host:
+      type: text
+      label: 'Asset host'
+    asset_path:
+      type: text
+      label: 'Asset path'

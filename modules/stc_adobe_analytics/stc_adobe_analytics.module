@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Contains stc_adobe_analytics.module
+ */
+
+function stc_adobe_analytics_library_info_alter(&$libraries, $extension) {
+  if ($extension === 'stc_adobe_analytics' && isset($libraries['adobe_analytics'])) {
+    $conf = \Drupal::config('stc_adobe_analytics.config');
+
+    $asset_host = $conf->get('asset_host');
+    $asset_path = $conf->get('asset_path');
+
+    // If we don't have an asset path, don't return any js.
+    if (empty($asset_path)) {
+      $libraries['adobe_analytics']['js'] = [];
+      return;
+    }
+
+    // Configure the full Adobe Analytics path.
+    $js = [
+      "//$asset_host/$asset_path" => ['remote' => TRUE],
+    ];
+
+    $libraries['adobe_analytics']['js'] = $js;
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function stc_adobe_analytics_page_attachments(array &$attachments) {
+  $conf = \Drupal::config('stc_adobe_analytics.config');
+
+  $asset_path = $conf->get('asset_path');
+  $route = \Drupal::routeMatch()->getRouteObject();
+
+  // Add the Adobe Analytics library if we have an asset path configured
+  // and are not on an admin page.
+  if (!empty($asset_path) && !\Drupal::service('router.admin_context')->isAdminRoute($route)) {
+    $attachments['#attached']['library'][] = 'stc_adobe_analytics/adobe_analytics';
+    $attachments['#attached']['library'][] = 'stc_adobe_analytics/adobe_analytics_footer';
+  }
+}
