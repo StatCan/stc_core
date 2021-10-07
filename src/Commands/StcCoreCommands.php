@@ -2,7 +2,6 @@
 
 namespace Drupal\stc_core\Commands;
 
-use Consolidation\OutputFormatters\StructuredData\RowsOfFields;
 use Drush\Commands\DrushCommands;
 use Symfony\Component\Yaml\Parser;
 
@@ -23,7 +22,7 @@ class StcCoreCommands extends DrushCommands {
    * Command description here.
    *
    * @param $path
-   *  Configuration path
+   *   Configuration path
    * @usage stc_core-import-language-config path
    *   Import the language config found in the configuration directory at provided path.
    *
@@ -72,5 +71,7 @@ class StcCoreCommands extends DrushCommands {
         $config->save();
       }
     }
+
   }
+
 }
