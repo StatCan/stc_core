@@ -1,0 +1,5 @@
+services:
+  stc_core.commands:
+    class: \Drupal\stc_core\Commands\StcCoreCommands
+    tags:
+      - { name: drush.command }
