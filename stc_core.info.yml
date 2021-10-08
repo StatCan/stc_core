@@ -7,3 +7,7 @@ package: 'STC'
 # Required modules
 dependencies:
   - drupal:datetime_range
+  - wxt_library:wxt_library
+
+themes:
+  - stc_bootstrap
