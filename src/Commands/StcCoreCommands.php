@@ -36,7 +36,10 @@ class StcCoreCommands extends DrushCommands {
     $site_default_langcode = $language_manager->getDefaultLanguage()->getId();
     // The directory where the language config files reside.
     $language_config_directory = DRUPAL_ROOT . '/' . $path . '/install/language';
-
+    if (!is_dir($language_config_directory)) {
+      $this->output()->writeln('Directory not found: ' . $language_config_directory);
+      return;
+    }
     // Sub-directory names (language codes).
     // The language code of the default language is excluded. If the user
     // chooses to install in French etc, the language config is imported by core
