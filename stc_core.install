@@ -15,6 +15,7 @@
 function stc_core_install() {
   _stc_core_setup_themes();
   _stc_core_setup_branding();
+  module_set_weight('stc_core', 10);
 }
 
 /**
@@ -64,4 +65,11 @@ function _stc_core_setup_branding() {
       'use_default' => FALSE,
     ])
     ->save(TRUE);
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function stc_core_update_9001() {
+  module_set_weight('stc_core', 10);
 }

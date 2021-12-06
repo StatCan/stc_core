@@ -37,3 +37,16 @@ function stc_core_form_wxt_search_block_form_alter(&$form, FormStateInterface $f
     $form['submit']['#icon_only'] = TRUE;
   }
 }
+
+/**
+ * Implements hook_metatags_attachments_alter().
+ */
+function stc_core_metatags_attachments_alter(array &$metatag_attachments) {
+  foreach ($metatag_attachments['#attached']['html_head'] as $key => &$tag) {
+    switch ($tag[1]) {
+      case 'dcterms_subject':
+        $tag[0]['#attributes']['title'] = 'gcstc';
+        break;
+    }
+  }
+}
