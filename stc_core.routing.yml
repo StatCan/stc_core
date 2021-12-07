@@ -1,0 +1,7 @@
+stc_core.user_email_limit:
+  path: '/admin/config/people/user-email-limit'
+  defaults:
+    _title: 'User email limit'
+    _form: 'Drupal\stc_core\Form\UserEmailLimitForm'
+  requirements:
+    _permission: 'administer account settings'

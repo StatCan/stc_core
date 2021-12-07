@@ -50,3 +50,10 @@ function stc_core_metatags_attachments_alter(array &$metatag_attachments) {
     }
   }
 }
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function stc_core_entity_type_alter(array &$entity_types) {
+  $entity_types['user']->addConstraint('UserMailConstraint');
+}

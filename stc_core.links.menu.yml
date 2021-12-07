@@ -1,0 +1,5 @@
+stc_core.user_email_limit:
+  title: User email limit
+  parent: system.admin_config_people
+  route_name: stc_core.user_email_limit
+  weight: 10
