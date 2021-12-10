@@ -57,7 +57,7 @@ class UserMailConstraintValidator extends ConstraintValidator implements Contain
 
     $email = $entity->getEmail();
     $email = explode('@', $email);
-    if (!in_array($email[1],['canada.ca', 'statcan.gc.ca'])) {
+    if (!in_array($email[1], ['canada.ca', 'statcan.gc.ca'])) {
       $this->context->buildViolation($constraint->description)->atPath('email')->addViolation();
     }
   }
