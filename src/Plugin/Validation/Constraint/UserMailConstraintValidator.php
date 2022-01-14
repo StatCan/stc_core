@@ -55,6 +55,10 @@ class UserMailConstraintValidator extends ConstraintValidator implements Contain
       return;
     }
 
+    if ($entity->id() == 1) {
+      return;
+    }
+
     $email = $entity->getEmail();
     $email = explode('@', $email);
     if (!in_array($email[1], ['canada.ca', 'statcan.gc.ca'])) {
