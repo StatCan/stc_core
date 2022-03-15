@@ -16,7 +16,13 @@ function stc_core_form_wxt_search_block_form_alter(&$form, FormStateInterface $f
   $wxt_gcweb_search = Bootstrap::getTheme()->getSetting('wxt_gcweb_search');
   if (empty($wxt_gcweb_search)) {
     $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    $form['#action'] = '//www120.statcan.gc.ca/stcsr/' . $language . '/ut1/uts';
+    if ($language == 'en') {
+      $form['#action'] = 'https://www.statcan.gc.ca/search/results/site-search';
+    }
+    else {
+      $form['#action'] = 'https://www.statcan.gc.ca/recherche/resultats/site-recherche';
+    }
+
     $form['#method'] = 'get';
 
     $form['keys']['#title'] = t('Search website');
