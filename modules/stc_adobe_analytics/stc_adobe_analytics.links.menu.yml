@@ -2,5 +2,5 @@ stc_adobe_analytics.configuration_form:
   title: 'Adobe Analytics configuration'
   route_name: stc_adobe_analytics.configuration_form
   description: 'Adobe Analytics configuration'
-  parent: stc.admin_config_stc
+  parent: system.admin_config
   weight: 99
